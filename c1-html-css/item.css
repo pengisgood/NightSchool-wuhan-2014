@@ -1,0 +1,78 @@
+header {
+  overflow: hidden;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+}
+
+header .header-left {
+  width: 300px;
+  overflow: hidden;
+  float: left;
+}
+
+header .header-left img{
+  width: 300px;
+  box-sizing: border-box;
+  border: solid 1px black;
+}
+
+header .header-right {
+  float: left;
+  margin-left: 100px;
+}
+
+header .header-right h3.red {
+  color: deeppink;
+}
+
+header .header-right button {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  background-color: aquamarine;
+  outline: none;
+  border: transparent;
+  cursor: pointer;
+}
+
+header .header-right button:hover {
+  background-color: blanchedalmond;
+}
+
+#body{
+  overflow: hidden;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 150px;
+  margin-top: 50px;
+}
+
+#body .item-detail-info{
+  margin-bottom: 50px;
+}
+
+#body .item-detail-info h4{
+  border-bottom: 1px solid black;
+}
+
+#body .item-detail-info table {
+  width: 100%;
+}
+
+#body .item-detail-info table * {
+  border: solid 1px transparent;
+  background-color: whitesmoke;
+}
+
+footer .advertisement{
+  width: 800px;
+  height: 100px;
+  right: 200px;
+  position: fixed;
+  background-color: aquamarine;
+  bottom: 20px;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50px 0px 0px 50px;
+}

@@ -1,0 +1,38 @@
+body header {
+  overflow: hidden;
+  width: 900px;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
+body header .header-left {
+  float: left;
+}
+
+body header .header-left img {
+  width: 300px;
+  border: solid 1px black;
+}
+
+body header .header-right {
+  width: 498px;
+  float: left;
+  margin-left: 100px;
+}
+
+body header .header-right h3.deeppink {
+  color: deeppink;
+}
+
+body header .header-right form button {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  background-color: aquamarine;
+  border: transparent;
+  cursor: pointer;
+}
+
+body header .header-right form button:hover {
+  background-color: blanchedalmond;
+}
