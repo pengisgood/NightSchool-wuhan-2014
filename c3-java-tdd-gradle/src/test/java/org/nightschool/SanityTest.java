@@ -1,4 +1,4 @@
-package com.makedream;
+package org.nightschool;
 
 import org.junit.Test;
 
