@@ -6,6 +6,7 @@ import org.nightschool.model.Disk;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class CartServiceTest {
