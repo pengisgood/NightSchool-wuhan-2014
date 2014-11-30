@@ -1,4 +1,4 @@
-package org.nightschool;
+package org.nightschool.demo;
 
 public class Calculator {
     //example

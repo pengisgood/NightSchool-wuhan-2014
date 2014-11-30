@@ -2,6 +2,7 @@ package org.nightschool;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Test;
+import org.nightschool.demo.Calculator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
