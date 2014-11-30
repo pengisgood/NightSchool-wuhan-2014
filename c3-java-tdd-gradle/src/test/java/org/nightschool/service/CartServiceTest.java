@@ -17,4 +17,16 @@ public class CartServiceTest {
 
         assertThat(disks.size(), is(0));
     }
+
+    @Test
+    public void should_able_to_add_disk_to_cart() throws Exception {
+        CartService cartService = new CartService();
+        Disk disk = new Disk("小清新光盘", "../images/disk/fancy-disk.jpg", "小清新、小文艺 35元/10张");
+
+        cartService.addDisk(disk);
+        List<Disk> disks= cartService.getDisks();
+
+        assertThat(disks.size(), is(1));
+        assertThat(disks.get(0), equalTo(disk));
+    }
 }
