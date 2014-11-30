@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>卖光碟啦</title>
-    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
@@ -42,78 +42,15 @@
             <p>光盘</p>
             <hr>
         </header>
-        <div class="content">
-            <div class="item">
-                <p>小清新光盘</p>
-                <img src="../images/disk/fancy-disk.jpg" alt="">
-
-                <p>小清新、小文艺 35元/10张</p>
-            </div>
-            <div class="item">
-                <p>婚庆光盘</p>
-                <img src="../images/disk/marriage-disk.jpg" alt="">
-
-                <p>记录你的美好瞬间 50元/10张</p>
-            </div>
-            <div class="item">
-                <p>1TB大容量光盘</p>
-                <img src="../images/disk/1TB-disk.jpg" alt="">
-
-                <p>解放你的光盘 100元/10张</p>
-            </div>
+        <div>
+            <input placeholder="商品名" id="name"/>
+            <input placeholder="图片链接" id="imgUrl"/>
+            <input placeholder="商品详情" id="desc"/>
+            <button onclick="add()">add</button>
+            <br>
+            <input placeholder="请输入搜索关键字" id="search" onkeyup="search()"/>
         </div>
-    </section>
-    <section>
-        <header>
-            <p>U盘</p>
-            <hr>
-        </header>
-        <div class="content">
-            <div class="item">
-                <p>小清新光盘</p>
-                <img src="../images/disk/fancy-disk.jpg" alt="">
-
-                <p>小清新、小文艺 35元/10张</p>
-            </div>
-            <div class="item">
-                <p>婚庆光盘</p>
-                <img src="../images/disk/marriage-disk.jpg" alt="">
-
-                <p>记录你的美好瞬间 50元/10张</p>
-            </div>
-            <div class="item">
-                <p>1TB大容量光盘</p>
-                <img src="../images/disk/1TB-disk.jpg" alt="">
-
-                <p>解放你的光盘 100元/10张</p>
-            </div>
-        </div>
-    </section>
-    <section>
-        <header>
-            <p>硬盘</p>
-            <hr>
-        </header>
-        <div class="content">
-            <div class="item">
-                <p>小清新光盘</p>
-                <img src="../images/disk/fancy-disk.jpg" alt="">
-
-                <p>小清新、小文艺 35元/10张</p>
-            </div>
-            <div class="item">
-                <p>婚庆光盘</p>
-                <img src="../images/disk/marriage-disk.jpg" alt="">
-
-                <p>记录你的美好瞬间 50元/10张</p>
-            </div>
-            <div class="item">
-                <p>1TB大容量光盘</p>
-                <img src="../images/disk/1TB-disk.jpg" alt="">
-
-                <p>解放你的光盘 100元/10张</p>
-            </div>
-        </div>
+        <div class="content" id="disks"></div>
     </section>
     <footer>
         <div class="left">
@@ -131,6 +68,12 @@
         </div>
     </footer>
 </div>
+
+<script type="text/javascript" src="../js/vendor/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/vendor/underscore-1.7.0.js"></script>
+
+<script type="text/javascript" src="../js/fakeData.js"></script>
+<script type="text/javascript" src="../js/diskList.js"></script>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 <script type="text/javascript" src="../js/baiduMap.js"></script>
