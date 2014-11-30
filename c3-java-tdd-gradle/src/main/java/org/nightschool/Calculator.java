@@ -1,6 +1,6 @@
 package org.nightschool;
 
-public class SanityDemo {
+public class Calculator {
     //example
     public int plus(int num1, int num2) {
         return num1 + num2;
@@ -8,7 +8,7 @@ public class SanityDemo {
 
     //a half done work
     public int minus(int num1, int num2) {
-        return 0;
+        return num1 + num2;
     }
 
     //Todo: implement the multiply method

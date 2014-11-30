@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class SanityTest {
+public class CalculatorTest {
     @Test
     public void should_one_plus_two_equal_three() throws Exception {
         //Example
@@ -23,10 +23,10 @@ public class SanityTest {
         //gradle has been installed properly, you should see 'BUILD SUCCESSFUL' at the last line.
 
         //准备数据
-        SanityDemo demo = new SanityDemo();
+        Calculator calculator = new Calculator();
 
         //执行方法
-        int result = demo.plus(1, 2);
+        int result = calculator.plus(1, 2);
 
         //验证结果
         assertThat(result, is(3));
@@ -38,10 +38,10 @@ public class SanityTest {
         //After you fix it, replace the @Ignore annotation with @Test annotation and then run 'gradle test' in command line to see the result.
 
         //准备数据
-        SanityDemo demo = new SanityDemo();
+        Calculator calculator = new Calculator();
 
         //执行方法
-        int result = demo.minus(3, 2);
+        int result = calculator.minus(3, 2);
 
         //验证结果
         assertThat(result, is(1));
