@@ -18,7 +18,8 @@ function diskDiv(disk) {
         .append(diskName(disk.name))
         .append(diskImgUrl(disk.img))
         .append(diskDesc(disk.desc))
-        .append(removeButton(disk.name));
+        .append(removeButton(disk.name))
+        .append(addToCartButton(disk.name));
 }
 
 function diskName(title) {
