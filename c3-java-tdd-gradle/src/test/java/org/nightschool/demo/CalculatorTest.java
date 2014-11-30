@@ -1,4 +1,4 @@
-package org.nightschool;
+package org.nightschool.demo;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Test;
