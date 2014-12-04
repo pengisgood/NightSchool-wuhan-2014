@@ -12,7 +12,7 @@ public class CalculatorTest {
         //Example
 
         /*
-         * This is an unit test for plus method in SanityDemo class!
+         * This is an unit test for plus method in Calculator class!
          * The 1st part prepares input data, instances to be tested or mock services.
          * The 2nd part executes the method which need to be tested and collects the result.
          * The 3rd part makes an assertion to verify the result.
