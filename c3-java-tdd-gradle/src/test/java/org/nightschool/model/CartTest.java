@@ -52,6 +52,8 @@ public class CartTest {
         Disk marriageDisk = new Disk("婚庆光盘", "../images/disk/marriage-disk.jpg", "记录你的美好瞬间 50元/10张");
 
         cart.addDisk(fancyDisk);
+        cart.addDisk(fancyDisk);
+        cart.addDisk(marriageDisk);
         cart.addDisk(marriageDisk);
 
         assertThat(cart.countKinds(), is(2));
