@@ -1,18 +1,18 @@
 package org.nightschool.model;
 
-public class Disk {
+public class DiskExample {
     private String name;
     private String imgUrl;
     private String desc;
 
-    public Disk(String name, String imgUrl, String desc) {
+    public DiskExample(String name, String imgUrl, String desc) {
 
         this.name = name;
         this.imgUrl = imgUrl;
         this.desc = desc;
     }
 
-    public Disk() {
+    public DiskExample() {
 
     }
 
