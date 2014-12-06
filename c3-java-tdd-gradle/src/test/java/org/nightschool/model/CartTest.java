@@ -45,4 +45,15 @@ public class CartTest {
         assertThat(disk1.getImgUrl(), is("../images/disk/fancy-disk.jpg"));
         assertThat(disk1.getDesc(), is("小清新、小文艺 35元/10张"));
     }
+
+    @Test
+    public void should_be_able_to_count_kinks_of_disks() throws Exception {
+        Disk fancyDisk = new Disk("小清新光盘", "../images/disk/fancy-disk.jpg", "小清新、小文艺 35元/10张");
+        Disk marriageDisk = new Disk("婚庆光盘", "../images/disk/marriage-disk.jpg", "记录你的美好瞬间 50元/10张");
+
+        cart.addDisk(fancyDisk);
+        cart.addDisk(marriageDisk);
+
+        assertThat(cart.countKinds(), is(2));
+    }
 }

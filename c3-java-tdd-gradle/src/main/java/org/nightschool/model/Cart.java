@@ -14,4 +14,8 @@ public class Cart {
     public void addDisk(Disk disk) {
         disks.add(disk);
     }
+
+    public int countKinds() {
+        return 0;
+    }
 }
