@@ -7,4 +7,8 @@ public class Cart {
     public List<Disk> getDisks() {
         return new ArrayList<>();
     }
+
+    public void addDisk(Disk disk) {
+
+    }
 }

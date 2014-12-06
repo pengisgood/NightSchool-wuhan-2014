@@ -16,4 +16,14 @@ public class CartTest {
 
         assertThat(disks.size(), is(0));
     }
+
+    @Test
+    public void should_able_to_add_disk_to_cart() throws Exception {
+        Cart cart = new Cart();
+        Disk disk = new Disk();
+
+        cart.addDisk(disk);
+
+        assertThat(cart.getDisks().size(), is(1));
+    }
 }
