@@ -39,9 +39,10 @@ public class CartTest {
         Disk disk = new Disk("小清新光盘", "../images/disk/fancy-disk.jpg", "小清新、小文艺 35元/10张");
 
         cart.addDisk(disk);
+        Disk disk1 = cart.getDisks().get(0);
 
-        assertThat(cart.getDisks().get(0).getName(), is("小清新光盘"));
-        assertThat(cart.getDisks().get(0).getImgUrl(), is("../images/disk/fancy-disk.jpg"));
-        assertThat(cart.getDisks().get(0).getDesc(), is("小清新、小文艺 35元/10张"));
+        assertThat(disk1.getName(), is("小清新光盘"));
+        assertThat(disk1.getImgUrl(), is("../images/disk/fancy-disk.jpg"));
+        assertThat(disk1.getDesc(), is("小清新、小文艺 35元/10张"));
     }
 }
