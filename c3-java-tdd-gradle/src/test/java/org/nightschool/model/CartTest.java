@@ -58,4 +58,18 @@ public class CartTest {
 
         assertThat(cart.countKinds(), is(2));
     }
+
+    @Test
+    public void should_be_able_to_remove_disk_from_cart() throws Exception {
+        Disk fancyDisk = new Disk("小清新光盘", "../images/disk/fancy-disk.jpg", "小清新、小文艺 35元/10张");
+        Disk marriageDisk = new Disk("婚庆光盘", "../images/disk/marriage-disk.jpg", "记录你的美好瞬间 50元/10张");
+
+        cart.addDisk(fancyDisk);
+        cart.addDisk(fancyDisk);
+        cart.addDisk(marriageDisk);
+        cart.removeDisk(fancyDisk);
+
+        assertThat(cart.getDisks().size(), is(1));
+
+    }
 }

@@ -25,4 +25,8 @@ public class Cart {
 
         return diskSet.size();
     }
+
+    public void removeDisk(Disk disk) {
+
+    }
 }
