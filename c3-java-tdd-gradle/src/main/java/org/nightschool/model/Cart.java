@@ -27,6 +27,17 @@ public class Cart {
     }
 
     public void removeDisk(Disk disk) {
+        int count = 0;
+        for (Disk d : disks) {
+            if (d.equals(disk)) {
+                count++;
+            }
+        }
 
+        int i=0;
+        while (i<count){
+            disks.remove(disk);
+            i++;
+        }
     }
 }
