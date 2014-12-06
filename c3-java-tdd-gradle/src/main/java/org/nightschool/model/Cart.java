@@ -16,6 +16,6 @@ public class Cart {
     }
 
     public int countKinds() {
-        return 0;
+        return disks.size();
     }
 }
