@@ -1,6 +1,7 @@
 package org.nightschool.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Cart {
@@ -16,6 +17,12 @@ public class Cart {
     }
 
     public int countKinds() {
-        return disks.size();
+        HashSet<Disk> diskSet = new HashSet<>();
+
+        for (Disk disk : disks) {
+            diskSet.add(disk);
+        }
+
+        return diskSet.size();
     }
 }
