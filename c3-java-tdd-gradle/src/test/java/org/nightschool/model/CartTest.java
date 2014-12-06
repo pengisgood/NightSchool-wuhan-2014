@@ -33,4 +33,15 @@ public class CartTest {
 
         assertThat(cart.getDisks().size(), is(1));
     }
+
+    @Test
+    public void should_be_able_to_get_disk_properties() throws Exception {
+        Disk disk = new Disk("小清新光盘", "../images/disk/fancy-disk.jpg", "小清新、小文艺 35元/10张");
+
+        cart.addDisk(disk);
+
+        assertThat(cart.getDisks().get(0).getName(), is("小清新光盘"));
+        assertThat(cart.getDisks().get(0).getImgUrl(), is("../images/disk/fancy-disk.jpg"));
+        assertThat(cart.getDisks().get(0).getDesc(), is("小清新、小文艺 35元/10张"));
+    }
 }
