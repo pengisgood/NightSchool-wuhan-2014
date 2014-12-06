@@ -7,6 +7,9 @@ public class Disk {
 
     public Disk(String name, String imgUrl, String desc) {
 
+        this.name = name;
+        this.imgUrl = imgUrl;
+        this.desc = desc;
     }
 
     public Disk() {
