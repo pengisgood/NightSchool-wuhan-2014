@@ -2,13 +2,13 @@ package org.nightschool.model;
 
 public class Disk {
     private String name;
-    private String imgUrl;
+    private String img;
     private String desc;
 
-    public Disk(String name, String imgUrl, String desc) {
+    public Disk(String name, String img, String desc) {
 
         this.name = name;
-        this.imgUrl = imgUrl;
+        this.img = img;
         this.desc = desc;
     }
 
@@ -20,8 +20,8 @@ public class Disk {
         return name;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImg() {
+        return img;
     }
 
     public String getDesc() {

@@ -1,6 +1,15 @@
 $(document).ready(function () {
-    dataToView(disks);
+    listDisks();
 });
+
+function listDisks() {
+    $.ajax({
+        url: "/disks/list",
+        type: "GET"
+    }).done(function (disks) {
+        dataToView(disks);
+    })
+}
 
 function dataToView(disks) {
     $("#disks").empty();
@@ -56,10 +65,14 @@ function add() {
         img: $("#imgUrl").val(),
         desc: $("#desc").val()
     };
-
-    disks.push(newProduct);
-
-    dataToView(disks);
+    $.ajax({
+        url: "/disks/add",
+        type: "POST",
+        data: JSON.stringify(newProduct),
+        contentType: "application/json"
+    }).done(function (disks) {
+        listDisks();
+    });
 }
 
 function search() {
