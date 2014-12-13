@@ -1,6 +1,7 @@
 package org.nightschool;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.nightschool.controller.DiskController;
@@ -17,7 +18,7 @@ public class NightSchoolApplication extends Application<NightSchoolConfiguration
 
     @Override
     public void initialize(Bootstrap<NightSchoolConfiguration> bootstrap) {
-        // nothing to do yet
+        bootstrap.addBundle(new AssetsBundle("/assets", "/assets"));
     }
 
     @Override
