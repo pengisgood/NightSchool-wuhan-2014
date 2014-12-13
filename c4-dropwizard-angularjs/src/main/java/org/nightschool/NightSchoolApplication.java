@@ -3,6 +3,7 @@ package org.nightschool;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.nightschool.controller.DiskController;
 
 public class NightSchoolApplication extends Application<NightSchoolConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -26,7 +27,11 @@ public class NightSchoolApplication extends Application<NightSchoolConfiguration
                 configuration.getTemplate(),
                 configuration.getDefaultName()
         );
+
+        DiskController diskController = new DiskController();
+
         environment.jersey().register(resource);
+        environment.jersey().register(diskController);
     }
 
 }
