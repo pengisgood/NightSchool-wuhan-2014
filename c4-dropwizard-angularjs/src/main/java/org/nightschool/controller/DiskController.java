@@ -1,12 +1,10 @@
 package org.nightschool.controller;
 
 import org.nightschool.model.Disk;
+import org.nightschool.service.DiskServcie;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,10 +12,21 @@ import java.util.List;
  */
 @Path("/disks")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class DiskController {
 
+    private final DiskServcie diskServcie = new DiskServcie();
+
     @GET
+    @Path("list")
     public List<Disk> list() {
-        return new ArrayList<>();
+        return diskServcie.listDisks();
+    }
+
+    @POST
+    @Path("add")
+    public Disk add(Disk disk) {
+        diskServcie.add(disk);
+        return disk;
     }
 }
