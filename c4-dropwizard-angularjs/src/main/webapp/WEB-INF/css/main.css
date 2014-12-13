@@ -1,0 +1,131 @@
+.container {
+}
+nav {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  background-color: #eeeeee;
+  font-family: STHeiti;
+  font-size: 13pt;
+}
+
+nav .align-left {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav .align-right {
+  display: inline-block;
+  margin-right: 20px;
+  float:right;
+}
+
+section {
+  padding: 20px;
+  font-family: STHeiti;
+  font-size: 15pt;
+  clear: both;
+}
+
+section .left {
+  display: inline-block;
+  width: 15%;
+  height: 350px;
+  background-color: #eeeeee;
+  padding: 40px 30px;
+}
+
+section .left li {
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+
+section .right {
+  display: inline-block;
+  width: 75%;
+  height: 350px;
+  float: right;
+
+}
+
+section .right img {
+  width: 50%;
+  max-width: 380px;
+  display: inline-block;
+  float: left;
+}
+
+section .right .description {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  text-align:right;
+  font-family: STHeiti;
+  font-size: 15pt;
+}
+
+section header {
+  font-weight: bold;
+}
+
+section hr {
+  border-style: double;
+}
+
+section .content {
+  text-align: center;
+}
+
+section .content .item{
+  width: 33%;
+  display: inline-block;
+  float: left;
+}
+
+section .item p{
+  line-height: 30px;
+}
+
+section .item img {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  background-color: #eeeeee;
+  clear: both;
+  font-family: STHeiti;
+  font-size: 15pt;
+  min-height: 400px;
+}
+
+footer  p {
+  font-size: 17pt;
+  font-weight: bold;
+}
+
+footer .left {
+  padding-left: 80px;
+  width: 40%;
+  display: inline-block;
+}
+
+
+footer .right {
+  width: 50%;
+  display: inline-block;
+  float: right;
+}
+
+footer .right img {
+  width: 60%;
+}
+
+footer .right .mapInfo{
+  width: 80%;
+  height: 300px;
+  border: #ccc;
+  float: left;
+  margin-left: 6px;
+  padding-left: 100px;
+}

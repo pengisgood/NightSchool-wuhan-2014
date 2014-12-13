@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <title>卖光碟啦</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<div class="container">
+    <nav>
+        <div class="align-left">
+            <a href="">登陆</a>
+            <a href="">注册</a>
+        </div>
+        <div class="align-right">
+            <a href="">我的订单</a>
+            <a href="" onclick="goToCart()">购物车</a>
+        </div>
+    </nav>
+    <section>
+        <div class="left">
+            <ul>
+                <li>光盘</li>
+                <li>U盘</li>
+                <li>硬盘</li>
+            </ul>
+        </div>
+        <div class="right">
+            <img src="../images/disk/fancy-disk.jpg" alt="">
+
+            <div class="description">
+                <p>小清新光盘</p>
+
+                <p>2GB文艺小清新光盘10张</p>
+
+                <p>￥35元</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <header>
+            <p>光盘</p>
+            <hr>
+        </header>
+        <div>
+            <input placeholder="商品名" id="name"/>
+            <input placeholder="图片链接" id="imgUrl"/>
+            <input placeholder="商品详情" id="desc"/>
+            <button onclick="add()">add</button>
+            <br>
+            <input placeholder="请输入搜索关键字" id="search" onkeyup="search()"/>
+        </div>
+        <div class="content" id="disks"></div>
+    </section>
+    <footer>
+        <div class="left">
+            <p>联系我们</p>
+            <ul>
+                <li>武汉市洪山区光谷世界城广场1616</li>
+                <li>Email: <a href="mailto:pandar_disk@gmail.com">pandar_disk@gmail.com</a></li>
+                <li>Tel: 15520552070</li>
+            </ul>
+        </div>
+        <div class="right">
+            <p>我们的位置</p>
+            <!--<img src="../images/position.png" alt="">-->
+            <div class="mapInfo" id="baiduMapInfo"></div>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript" src="../js/vendor/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/vendor/underscore-1.7.0.js"></script>
+
+<script type="text/javascript" src="../js/fakeData.js"></script>
+<script type="text/javascript" src="../js/cart.js"></script>
+<script type="text/javascript" src="../js/diskList.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script type="text/javascript" src="../js/baiduMap.js"></script>
+</body>
+</html>
