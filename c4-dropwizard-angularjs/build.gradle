@@ -8,6 +8,9 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.11'
+    compile 'io.dropwizard:dropwizard-core:0.7.1'
+    compile 'io.dropwizard:dropwizard-assets:0.7.1'
+
 }
 
 sourceSets {
