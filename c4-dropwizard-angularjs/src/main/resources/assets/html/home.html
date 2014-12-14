@@ -1,11 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app>
 <head>
     <title>卖光碟啦</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
+<body ng-controller="DiskListCtrl" ng-init="init()">
 <div class="container">
     <nav>
         <div class="align-left">
@@ -50,7 +50,14 @@
             <br>
             <input placeholder="请输入搜索关键字" id="search" onkeyup="search()"/>
         </div>
-        <div class="content" id="disks"></div>
+
+        <div class="content">
+            <div ng-repeat="disk in disks" class="item">
+                <p>{{disk.name}}</p>
+                <img src="{{disk.img}}">
+                <p>{{disk.desc}}</p>
+            </div>
+        </div>
     </section>
     <footer>
         <div class="left">
@@ -71,10 +78,13 @@
 
 <script type="text/javascript" src="../js/vendor/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="../js/vendor/underscore-1.7.0.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
 
 <script type="text/javascript" src="../js/fakeData.js"></script>
 <script type="text/javascript" src="../js/cart.js"></script>
-<script type="text/javascript" src="../js/diskList.js"></script>
+<!--<script type="text/javascript" src="../js/diskList.js"></script>-->
+<script type="text/javascript" src="../js/DiskListCtrl.js"></script>
+
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 <script type="text/javascript" src="../js/baiduMap.js"></script>
