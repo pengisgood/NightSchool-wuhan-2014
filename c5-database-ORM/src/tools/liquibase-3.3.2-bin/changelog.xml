@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="Yang Liu">
+        <createTable tableName="item" >
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="img_url" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="item">
+            <column name="name" value="小清新"/>
+            <column name="img_url" value=" ../images/disk/fancy-disk.jpg"/>
+            <column name="description" value="小清新、小文艺 35元/10"/>
+            <column name="price" value="100.0"/>
+            <column name="count" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="Yang Liu">
+        <insert tableName="item">
+            <column name="name" value="小清新"/>
+            <column name="img_url" value=" ../images/disk/fancy-disk.jpg"/>
+            <column name="description" value="小清新、小文艺 35元/10"/>
+            <column name="price" value="100.0"/>
+            <column name="count" value="1"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>
