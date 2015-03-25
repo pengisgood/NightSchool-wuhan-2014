@@ -6,13 +6,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="1" author="Liu Yang">
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="item"/>
-    </changeSet>
-
-
-    <changeSet id="2" author="Liu Yang">
         <createTable tableName="item" >
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -35,7 +28,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="3" author="Lane Chen">
+    <changeSet id="2" author="Lane Chen">
         <insert tableName="item">
             <column name="name" value="小清新"/>
             <column name="imgUrl" value=" ../images/disk/fancy-disk.jpg"/>
