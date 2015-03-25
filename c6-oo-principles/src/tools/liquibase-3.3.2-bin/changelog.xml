@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1" author="Liu Yang">
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="item"/>
+    </changeSet>
+
+
+    <changeSet id="2" author="Liu Yang">
+        <createTable tableName="item" >
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="imgUrl" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="Lane Chen">
+        <insert tableName="item">
+            <column name="name" value="小清新"/>
+            <column name="imgUrl" value=" ../images/disk/fancy-disk.jpg"/>
+            <column name="description" value="小清新、小文艺 35元/10"/>
+            <column name="price" value="3.5"/>
+            <column name="count" value="1000"/>
+        </insert>
+        <insert tableName="item">
+            <column name="name" value="婚礼"/>
+            <column name="imgUrl" value=" ../images/disk/marriage-disk.jpg"/>
+            <column name="description" value="婚礼专用光盘 50元/10"/>
+            <column name="price" value="5.0"/>
+            <column name="count" value="1000"/>
+        </insert>
+        <insert tableName="item">
+            <column name="name" value="1TB大容量"/>
+            <column name="imgUrl" value=" ../images/disk/1TB-disk.jpg"/>
+            <column name="description" value="1TB大容量超级光盘 80元/10"/>
+            <column name="price" value="8.0"/>
+            <column name="count" value="1000"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
