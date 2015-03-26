@@ -1,12 +1,12 @@
-angular.module('DiskApp', []).controller("DisksListCtrl", function ($scope, $http, filterFilter) {
+angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $http, filterFilter) {
     $scope.disks = [];
     $scope.cart = [];
 
     $scope.isList = true;
     $scope.isCart = false;
-    $scope.number = 10;
+    $scope.number = 1;
     $scope.totalPrice = 0.0;
-    $scope.disk = {price: 10.0, number: 0}
+    $scope.disk = {};
 
 
     $scope.init = function () {
@@ -57,6 +57,7 @@ angular.module('DiskApp', []).controller("DisksListCtrl", function ($scope, $htt
 
     $scope.addToCart = function (disk) {
         disk.number = $scope.number;
+        console.log("number")
         $http({
             method: 'POST',
             url: '/cart/add',

@@ -1,4 +1,4 @@
-package org.nightschool.mapper;
+package org.nightschool.dao.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -11,6 +11,6 @@ public interface DiskMapper
     @Select("Select * from item")
     public List<Disk> getDisks();
 
-    @Insert("insert into item(id, name, imgUrl, description, price, count) values('100', #{name}, #{imgUrl}, #{desc}, #{price}, #{number})")
-    public int insert(Disk disk);
+    @Insert("insert into item(name, imgurl, description, price, count, category) values( #{name}, #{imgurl}, #{description}, #{price}, #{count}, #{category})")
+    public int add(Disk disk);
 }

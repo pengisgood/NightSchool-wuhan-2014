@@ -1,8 +1,8 @@
 package org.nightschool.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import org.nightschool.Mybatis.MybatisUtil;
-import org.nightschool.mapper.DiskMapper;
+import org.nightschool.mybatis.MybatisUtil;
+import org.nightschool.dao.mapper.DiskMapper;
 import org.nightschool.model.Disk;
 
 import java.io.IOException;
@@ -17,9 +17,6 @@ public class DiskDao {
     SqlSession session = null;
 
     public DiskDao() {
-//        disks.add(new Disk("XQX", "../images/disk/fancy-disk.jpg", "你好", 0, 3.5));
-//        disks.add(new Disk("Wedding", "../images/disk/marriage-disk.jpg", "记录你的美好瞬间 50元/10张", 0, 5.0));
-//        disks.add(new Disk("1TB Big Storage", "../images/disk/1TB-disk.jpg", "解放你的硬盘  100元/10张", 0, 10.0));
         initSession();
     }
 
@@ -32,15 +29,33 @@ public class DiskDao {
     }
 
     public List<Disk> listDisks() {
-        DiskMapper diskMapper = session.getMapper(DiskMapper.class);
-        return diskMapper.getDisks();
+        List<Disk> result = new ArrayList<Disk>();
+        try {
+            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
+            result = diskMapper.getDisks();
+        } catch (Exception e) {
+            session.rollback();
+        }
+        return result;
     }
 
     public void add(Disk disk) {
-        disks.add(disk);
+        try{
+            System.out.println("========================== " + disk.toString());
+            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
+            diskMapper.add(disk);
+            session.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            session.rollback();
+        }
     }
 
     public void remove(int index) {
-        disks.remove(index);
+        try{
+            disks.remove(index);
+        } catch (Exception e) {
+            session.rollback();
+        }
     }
 }

@@ -1,9 +1,9 @@
-package Mybatis;
+package mybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
-import org.nightschool.Mybatis.MybatisUtil;
+import org.nightschool.mybatis.MybatisUtil;
 
 import java.io.IOException;
 import java.sql.Connection;

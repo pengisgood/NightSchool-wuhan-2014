@@ -13,7 +13,7 @@
             <column name="name" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="imgUrl" type="varchar(100)">
+            <column name="imgurl" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="description" type="varchar(500)">
@@ -25,31 +25,52 @@
             <column name="count" type="INT">
                 <constraints nullable="false"/>
             </column>
+            <column name="category" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
     <changeSet id="2" author="Lane Chen">
         <insert tableName="item">
             <column name="name" value="小清新"/>
-            <column name="imgUrl" value=" ../images/disk/fancy-disk.jpg"/>
+            <column name="imgurl" value=" ../images/disk/fancy-disk.jpg"/>
             <column name="description" value="小清新、小文艺 35元/10"/>
             <column name="price" value="3.5"/>
             <column name="count" value="1000"/>
+            <column name="category" value="disk"/>
         </insert>
         <insert tableName="item">
             <column name="name" value="婚礼"/>
-            <column name="imgUrl" value=" ../images/disk/marriage-disk.jpg"/>
+            <column name="imgurl" value=" ../images/disk/marriage-disk.jpg"/>
             <column name="description" value="婚礼专用光盘 50元/10"/>
             <column name="price" value="5.0"/>
             <column name="count" value="1000"/>
+            <column name="category" value="disk"/>
         </insert>
         <insert tableName="item">
             <column name="name" value="1TB大容量"/>
-            <column name="imgUrl" value=" ../images/disk/1TB-disk.jpg"/>
+            <column name="imgurl" value=" ../images/disk/1TB-disk.jpg"/>
             <column name="description" value="1TB大容量超级光盘 80元/10"/>
             <column name="price" value="8.0"/>
             <column name="count" value="1000"/>
+            <column name="category" value="disk"/>
         </insert>
     </changeSet>
+
+    <changeSet id="3" author="Lane Chen">
+        <createTable tableName="cart" >
+            <column name="username" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="itemid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
 
 </databaseChangeLog>

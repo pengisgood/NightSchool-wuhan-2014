@@ -10,7 +10,7 @@
     <script src="../js/vendor/underscore-1.7.0.js"></script>
 
 </head>
-<body ng-controller="DisksListCtrl" ng-init="init()">
+<body ng-app="diskApp" ng-controller="DisksListCtrl" ng-init="init()">
 <div class="container">
     <nav>
         <div class="align-left">
@@ -54,6 +54,10 @@
                     商品名
                 </th>
 
+                <th class="td-category">
+                    类别
+                </th>
+
                 <th class="td-number">
                     数量
                 </th>
@@ -74,6 +78,10 @@
 
                 <td class="td-name">
                     {{disk.name}}
+                </td>
+
+                <td class="td-name">
+                    {{disk.category}}
                 </td>
 
                 <td class="td-number">
@@ -100,8 +108,11 @@
         </header>
         <div>
             <input placeholder="商品名" id="name" ng-model="disk.name"/>
-            <input placeholder="图片链接" id="imgUrl" ng-model="disk.imgUrl"/>
-            <input placeholder="商品详情" id="desc" ng-model="disk.desc"/>
+            <input placeholder="图片链接" id="imgurl" ng-model="disk.imgurl"/>
+            <input placeholder="商品详情" id="desc" ng-model="disk.description"/>
+            <input placeholder="类别" id="category" ng-model="disk.category"/>
+            <input placeholder="单价" id="price" ng-model="disk.price"/>
+            <input placeholder="数量" id="count" ng-model="disk.count"/>
             <button ng-click="addDisk()">add</button>
             <br>
             <input placeholder="请输入搜索关键字" id="search" ng-model="key"/>
@@ -111,15 +122,19 @@
                 <p>
                     {{disk.name}}
                 </p>
-                <img ng-src={{disk.imgUrl}}>
+                <img ng-src={{disk.imgurl}}>
 
                 <p>
                     {{disk.description}}
                 </p>
 
+                <p>
+                    {{disk.category}}
+                </p>
+
                 <div>
                     <label>单价: {{disk.price}} 元</label>
-                    数量: <input type="text" placeholder=10 ng-model="number">
+                    数量: <input type="text" placeholder=1 ng-model="number" />
                 </div>
 
                 <div>

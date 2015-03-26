@@ -107,7 +107,11 @@ table .td-checkbox, .td-number, .td-price, .td-amount{
 }
 
 table .td-name{
-  width: 40%;
+  width: 20%;
+}
+
+table .td-category{
+  width: 20%;
 }
 
 #totalPrice{

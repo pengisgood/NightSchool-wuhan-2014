@@ -1,9 +1,8 @@
 package integration;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
-import org.nightschool.Mybatis.MybatisUtil;
-import org.nightschool.mapper.DiskMapper;
+import org.nightschool.mybatis.MybatisUtil;
+import org.nightschool.dao.mapper.DiskMapper;
 import org.nightschool.model.Disk;
 
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class MybatisIntegrationTest
 
         assertThat(disks.size(), is(46));
 
-        mapper.insert(new Disk("小苹果", "test", "test", 1, 10.0));
+        mapper.add(new Disk("小苹果", "test", "test", 1, 10.0));
         disks = mapper.getDisks();
 
         assertThat(disks.size(), is(47));

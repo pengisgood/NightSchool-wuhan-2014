@@ -2,17 +2,28 @@ package org.nightschool.model;
 
 public class Disk {
     private String name;
-    private String imgUrl;
+    private String imgurl;
     private String description;
-    private int number;
+    private int count;
     private double price;
+    private String category;
+    private int number;
 
-    public Disk(String name, String imgUrl, String description, int number, double price)
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+
+    public Disk(String name, String imgurl, String description, int count, double price)
     {
         this.name = name;
-        this.imgUrl = imgUrl;
+        this.imgurl = imgurl;
         this.description = description;
-        this.number = number;
+        this.count = count;
         this.price = price;
     }
 
@@ -20,28 +31,43 @@ public class Disk {
 
     }
 
-
     public String getName() {
         return name;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
     public double getPrice() {
         return price;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String toString() {
+        return name + " : " + category + " : " + imgurl + " : " + description + " : ";
     }
 }
