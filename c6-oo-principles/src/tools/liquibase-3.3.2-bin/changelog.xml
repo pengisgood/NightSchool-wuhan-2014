@@ -59,7 +59,7 @@
     </changeSet>
 
     <changeSet id="3" author="Lane Chen">
-        <createTable tableName="cart" >
+        <createTable tableName="cart_item" >
             <column name="username" type="varchar(50)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

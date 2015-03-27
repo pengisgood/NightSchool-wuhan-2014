@@ -1,7 +1,6 @@
 package org.nightschool.controller;
 
-import org.nightschool.dao.CartDao;
-import org.nightschool.model.Disk;
+import org.nightschool.dao.CartItemDao;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,22 +9,24 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+import static org.nightschool.model.Cart.*;
+
 /**
  * Created by Thoughtworks on 12/26/14.
  */
 @Path("/cart")
 public class CartController {
-    CartDao cartDao = new CartDao();
+    CartItemDao cartItemDao = new CartItemDao();
 
     @GET
-    public List<Disk> list(){
-        return cartDao.cartList();
+    public List<CartItem> list(){
+        return cartItemDao.cartList();
     }
 
     @POST
     @Path("add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void add(Disk disk) {
-        cartDao.add(disk);
+    public void add(CartItem cartItem) {
+        cartItemDao.add(cartItem);
     }
 }

@@ -8,11 +8,14 @@ public interface ClearTableMapper {
     int clearChangeLog();
 
     @Delete("delete from databasechangeloglock where 1 =1 ")
-    int clearChangelogLock();
+    int clearChangeLogLock();
 
     @Delete("drop table item")
-    int clearItem();
+    int dropItem();
 
     @Delete("drop sequence item_id_seq")
-    int clearItemSequence();
+    int dropItemSequence();
+
+    @Delete("drop table cart_item")
+    int dropCartItem();
 }

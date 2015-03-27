@@ -1,43 +1,68 @@
 package org.nightschool.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class Cart {
 
-    private final ArrayList<Disk> disks = new ArrayList<Disk>();
+    private int totalItems;
 
-    public List<Disk> getDisks() {
-        return disks;
+    public int getTotalItems() {
+        return totalItems;
     }
 
-    public void addDisk(Disk disk) {
-        disks.add(disk);
+    public void setTotalItems(int totalItems) {
+        this.totalItems = totalItems;
     }
 
-    public int countKinds() {
-        HashSet<Disk> diskSet = new HashSet<Disk>();
+    public int getTotalPrice() {
+        return totalPrice;
+    }
 
-        for (Disk disk : disks) {
-            diskSet.add(disk);
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    private int totalPrice;
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    private List<CartItem> cartItems = new ArrayList<CartItem>();
+
+    public static class CartItem {
+        String username;
+        int itemid;
+        int number;
+
+        public String getUsername() {
+            return username;
         }
 
-        return diskSet.size();
-    }
-
-    public void removeDisk(Disk disk) {
-        int count = 0;
-        for (Disk d : disks) {
-            if (d.equals(disk)) {
-                count++;
-            }
+        public void setUsername(String username) {
+            this.username = username;
         }
 
-        int i=0;
-        while (i<count){
-            disks.remove(disk);
-            i++;
+        public Integer getItemid() {
+            return itemid;
+        }
+
+        public void setItemid(int itemid) {
+            this.itemid = itemid;
+        }
+
+        public Integer getNumber() {
+            return number;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
         }
     }
+
 }

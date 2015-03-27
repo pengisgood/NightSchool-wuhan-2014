@@ -44,7 +44,6 @@ public class DiskDao {
             System.out.println("========================== " + disk.toString());
             DiskMapper diskMapper = session.getMapper(DiskMapper.class);
             diskMapper.add(disk);
-            session.commit();
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();
