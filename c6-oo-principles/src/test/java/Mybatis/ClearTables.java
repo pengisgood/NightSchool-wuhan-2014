@@ -34,23 +34,14 @@ public class ClearTables {
 
     @Test
     public void revertDatabase() throws IOException {
-        dropCartItem(mapper);
-        dropItem(mapper);
-        dropItemSequence(mapper);
-        clearChangeLog(mapper);
-        clearChangeLogLock(mapper);
+        dropCartItem();
+        dropItem();
+        clearChangeLog();
+        clearChangeLogLock();
+        session.commit();
     }
 
-    private void dropItemSequence(ClearTableMapper mapper) {
-        try {
-            mapper.dropItemSequence();
-        }catch (Exception e) {
-            System.out.println(e);
-            session.rollback();
-        }
-    }
-
-    private void dropItem(ClearTableMapper mapper) {
+    private void dropItem() {
         try {
             mapper.dropItem();
         }catch (Exception e) {
@@ -59,7 +50,7 @@ public class ClearTables {
         }
     }
 
-    private void dropCartItem(ClearTableMapper mapper) {
+    private void dropCartItem() {
         try {
             mapper.dropCartItem();
         }catch (Exception e) {
@@ -68,7 +59,7 @@ public class ClearTables {
         }
     }
 
-    private void clearChangeLog(ClearTableMapper mapper) {
+    private void clearChangeLog() {
         try {
             mapper.clearChangeLog();
         }catch (Exception e) {
@@ -77,7 +68,7 @@ public class ClearTables {
         }
     }
 
-    private void clearChangeLogLock(ClearTableMapper mapper) {
+    private void clearChangeLogLock() {
         try {
             mapper.clearChangeLogLock();
         }catch (Exception e) {
