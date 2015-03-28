@@ -27,10 +27,11 @@ public class CartController {
     @POST
     @Path("add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void add(Item item) {
+    public Cart add(Item item) {
         CartItem cartItem = new CartItem();
         cartItem.setItemid(item.getId());
         cartItem.setNumber(item.getNumber());
         cartItemDao.add(cartItem);
+        return new Cart();
     }
 }

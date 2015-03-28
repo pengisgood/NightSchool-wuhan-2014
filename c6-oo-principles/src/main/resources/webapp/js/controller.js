@@ -1,6 +1,6 @@
 angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $http, filterFilter) {
     $scope.disks = [];
-    $scope.cart = [];
+    $scope.cart = {totalItem:0};
 
     $scope.isList = true;
     $scope.isCart = false;
@@ -11,17 +11,19 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
 
     $scope.init = function () {
         getDisks();
+        $scope.goToCart(true);
     }
 
 
-    $scope.goToCart = function () {
-        $scope.isList = false;
-        $scope.isCart = true;
+    $scope.goToCart = function (isInit) {
+        $scope.isList = isInit;
+        $scope.isCart = !isInit;
 
         $http({
             method: 'GET',
             url: '/cart'
         }).success(function (data) {
+            console.log(data);
             $scope.cart = data;
         }).error(function (error) {
         });
@@ -115,4 +117,5 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
             console.log(error);
         });
     };
+
 });

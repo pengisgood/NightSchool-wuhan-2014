@@ -19,7 +19,7 @@
         </div>
         <div class="align-right">
             <a href="">我的订单</a>
-            <a href="javascript:void(0)" ng-click="goToCart()" ng-show="isList">购物车</a>
+            <a href="javascript:void(0)" ng-click="goToCart()" ng-show="isList">购物车{{cart.totalItems}}</a>
             <a href="javascript:void(0)" ng-click="goToList()" ng-show="isCart">返回</a>
         </div>
     </nav>
@@ -67,38 +67,38 @@
                 </th>
 
                 <th class="td-amount">
-                    总量
+                    总价
                 </th>
             </tr>
 
-            <tr ng-repeat="disk in cart">
+            <tr ng-repeat="item in cart.items">
                 <td class="td-checkbox">
                     <input type="checkbox" class="check-self" ng-checked="master" ng-click="isAllChecked()">
                 </td>
 
                 <td class="td-name">
-                    {{disk.name}}
+                    {{item.name}}
                 </td>
 
                 <td class="td-name">
-                    {{disk.category}}
+                    {{item.category}}
                 </td>
 
                 <td class="td-number">
-                    {{disk.number}}
+                    {{item.number}}
                 </td>
 
                 <td class="td-price">
-                    {{disk.price}}
+                    {{item.price}}
                 </td>
 
                 <td class="td-amount">
-                    {{disk.price * disk.number}}
+                    {{item.price * item.number}}
                 </td>
             </tr>
         </table>
         <p id="totalPrice">
-            当前所选商品的总价: {{totalPrice}}元
+            当前所选商品的总价: {{cart.totalPrice}}元
         </p>
     </div>
     <section id="showMessage" ng-show="isList">

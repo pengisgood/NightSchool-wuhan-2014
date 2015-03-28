@@ -6,14 +6,15 @@ import java.util.List;
 public class Cart {
 
     private int totalItems = 10;
+    private float totalPrice = 50.00f;
 
-    private List<Item> items = createFakeDisks();
+    private Item[] items = createFakeItems();
 
-    private List<Item> createFakeDisks() {
-        List<Item> result = new ArrayList<Item>();
-        Item item = new Item("小清新光盘","DISK","小清新，","", 1000, 5.00);
+    private Item[] createFakeItems() {
+        Item[] result = new Item[1];
+        Item item = new Item("little fresh disk","DISK","little fresh","", 1000, 5.00);
         item.setNumber(10);
-        result.add(item);
+        result[0] = item;
         return result;
     }
 
@@ -25,26 +26,19 @@ public class Cart {
         this.totalItems = totalItems;
     }
 
-    public int getTotalPrice() {
+    public float getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    private int totalPrice;
-
-    public List<CartItem> getCartItems() {
-        return cartItems;
+    public Item[] getItems() {
+        return items;
     }
 
-    public void setCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
+    public void setItems(Item[] items) {
+        this.items = items;
     }
-
-    private List<CartItem> cartItems = new ArrayList<CartItem>();
-
-
-
 }
