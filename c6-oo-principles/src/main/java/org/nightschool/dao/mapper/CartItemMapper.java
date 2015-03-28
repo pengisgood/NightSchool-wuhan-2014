@@ -3,7 +3,7 @@ package org.nightschool.dao.mapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.nightschool.model.Cart.CartItem;
+import org.nightschool.model.CartItem;
 
 import java.util.List;
 

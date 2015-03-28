@@ -1,6 +1,7 @@
 package org.nightschool.controller;
 
 import mybatis.TestUtil;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.nightschool.dao.mapper.ForTestsMapper;
@@ -23,9 +24,14 @@ public class DiskControllerTest {
     public static void start() throws Exception {
         MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH);
         diskController = new DiskController();
+    }
+
+    @Before
+    public void setUp() {
         TestUtil.clearItem();
         prepareDisks();
     }
+
 
     @Test
     public void test_list_disks_is_empty() throws Exception{

@@ -2,6 +2,9 @@ package org.nightschool.dao.mapper;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.nightschool.model.CartItem;
 import org.nightschool.model.Disk;
 
 public interface ForTestsMapper {
@@ -25,4 +28,11 @@ public interface ForTestsMapper {
 
     @Insert("insert into item(name, category, imgurl, description, price, count) values( #{name}, #{category}, #{imgurl}, #{description}, #{price}, #{count})")
     public int addDisk(Disk disk);
+
+    @Select("select * from cart_item where itemid = #{itemid}")
+    public CartItem getCartItemId(@Param("itemid") int itemid);
+
+    @Delete("delete from cart_item")
+    void clearCartItem();
+
 }

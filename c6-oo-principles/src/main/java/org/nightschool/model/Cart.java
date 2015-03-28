@@ -5,7 +5,17 @@ import java.util.List;
 
 public class Cart {
 
-    private int totalItems;
+    private int totalItems = 10;
+
+    private List<Disk> disks = createFakeDisks();
+
+    private List<Disk> createFakeDisks() {
+        List<Disk> result = new ArrayList<Disk>();
+        Disk disk = new Disk("小清新光盘","","","", 1000, 5.00);
+        disk.setNumber(10);
+        result.add(disk);
+        return result;
+    }
 
     public int getTotalItems() {
         return totalItems;
@@ -35,34 +45,6 @@ public class Cart {
 
     private List<CartItem> cartItems = new ArrayList<CartItem>();
 
-    public static class CartItem {
-        String username;
-        int itemid;
-        int number;
 
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public Integer getItemid() {
-            return itemid;
-        }
-
-        public void setItemid(int itemid) {
-            this.itemid = itemid;
-        }
-
-        public Integer getNumber() {
-            return number;
-        }
-
-        public void setNumber(int number) {
-            this.number = number;
-        }
-    }
 
 }

@@ -2,6 +2,7 @@ package mybatis;
 
 import org.nightschool.dao.mapper.ForTestsMapper;
 import org.apache.ibatis.session.SqlSession;
+import org.nightschool.model.CartItem;
 import org.nightschool.model.Disk;
 import org.nightschool.mybatis.MybatisUtil;
 
@@ -12,12 +13,13 @@ import java.util.List;
  * Created by luchen on 3/28/15.
  */
 public class TestUtil {
+    private static SqlSession session;
+    private static ForTestsMapper mapper;
+
 
     public static void clearItem() {
-        SqlSession session = null;
         try {
-            session = MybatisUtil.getFactory().openSession(true);
-            ForTestsMapper mapper = session.getMapper(ForTestsMapper.class);
+            initSessoin();
             mapper.clearItem();
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,11 +30,14 @@ public class TestUtil {
 
     }
 
+    private static void initSessoin() throws IOException {
+        session = MybatisUtil.getFactory().openSession(true);
+        mapper = session.getMapper(ForTestsMapper.class);
+    }
+
     public static void addDisks(Object item) {
-        SqlSession session = null;
         try {
-            session = MybatisUtil.getFactory().openSession(true);
-            ForTestsMapper mapper = session.getMapper(ForTestsMapper.class);
+            initSessoin();
             if(item instanceof List) {
                 List<Disk> items = (List<Disk>)item;
                 for(Disk disk : items){
@@ -49,4 +54,23 @@ public class TestUtil {
         }
     }
 
+    public static CartItem getCartItemByItemId(int itemid) {
+        CartItem cartItem = null;
+        try {
+            initSessoin();
+            cartItem = mapper.getCartItemId(itemid);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cartItem;
+    }
+
+    public static void clearCartItem() {
+        try {
+            initSessoin();
+            mapper.clearCartItem();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

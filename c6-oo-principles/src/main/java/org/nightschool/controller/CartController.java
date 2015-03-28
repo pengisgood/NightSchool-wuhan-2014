@@ -1,5 +1,8 @@
 package org.nightschool.controller;
 
+import org.nightschool.model.Cart;
+import org.nightschool.model.CartItem;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,8 +19,8 @@ import static org.nightschool.model.Cart.*;
 public class CartController {
 
     @GET
-    public List<CartItem> list(){
-        return null;
+    public Cart getCart(){
+        return new Cart();
     }
 
     @POST

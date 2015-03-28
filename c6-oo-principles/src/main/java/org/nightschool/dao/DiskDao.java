@@ -15,63 +15,76 @@ import java.util.List;
 public class DiskDao {
     ArrayList<Disk> disks = new ArrayList<Disk>();
     SqlSession session = null;
+    DiskMapper diskMapper = null;
 
-    public DiskDao() {
-        initSession();
-    }
+    public DiskDao() {}
 
     public List<Disk> listDisks() {
+        initSession();
         List<Disk> result = new ArrayList<Disk>();
         try {
-            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
             result = diskMapper.getDisks();
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();
+        } finally {
+            closeSession();
         }
         return result;
     }
 
     public void add(Disk disk) {
+        initSession();
         try{
-            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
+            diskMapper = session.getMapper(DiskMapper.class);
             diskMapper.add(disk);
+            session.commit();
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();
-        }
-    }
-
-    private void initSession() {
-        try {
-            session = MybatisUtil.getFactory().openSession();
-        } catch (IOException e) {
-            //
+        } finally {
+            closeSession();
         }
     }
 
     public Disk getByName(String name) {
         Disk result = null;
+        initSession();
         try{
-            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
             result = diskMapper.getByName(name);
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();
+        } finally {
+            closeSession();
         }
         return result;
     }
 
     public void remove(int index) {
+        initSession();
         try{
             disks.remove(index);
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();
+        } finally {
+            closeSession();
         }
     }
 
-    public void closeSession() {
-        session.close();
+    private void initSession() {
+        try {
+            session = MybatisUtil.getFactory().openSession(true);
+            diskMapper = session.getMapper(DiskMapper.class);
+        } catch (IOException e) {
+            //
+        }
+    }
+
+    private void closeSession() {
+        if(null != session) {
+            session.close();
+        }
     }
 }
