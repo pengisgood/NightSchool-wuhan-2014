@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.nightschool.dao.mapper.ForTestsMapper;
-import org.nightschool.model.Disk;
+import org.nightschool.model.Item;
 import org.nightschool.mybatis.MybatisUtil;
 
 import java.util.ArrayList;
@@ -17,13 +17,13 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Thoughtworks on 12/20/14.
  */
-public class DiskControllerTest {
-    private static DiskController diskController;
+public class ItemControllerTest {
+    private static ItemController itemController;
 
     @BeforeClass
     public static void start() throws Exception {
         MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH);
-        diskController = new DiskController();
+        itemController = new ItemController();
     }
 
     @Before
@@ -35,23 +35,23 @@ public class DiskControllerTest {
 
     @Test
     public void test_list_disks_is_empty() throws Exception{
-        List<Disk> disks = diskController.list();
-        assertThat(disks.size(), is(4));
+        List<Item> items = itemController.list();
+        assertThat(items.size(), is(4));
     }
 
     @Test
     public void test_list_disks_is_not_empty() throws Exception {
-        Disk disk = new Disk("test_name", "USB", "imgUrl", "desc", 1000, 10.0);
-        diskController.add(disk);
-        assertThat(diskController.list().size(), is(5));
+        Item item = new Item("test_name", "USB", "imgUrl", "desc", 1000, 10.0);
+        itemController.add(item);
+        assertThat(itemController.list().size(), is(5));
     }
 
     public static void prepareDisks() {
-        List<Disk> disks = new ArrayList<Disk>();
-        disks.add(new Disk("小清新光盘", "DISK", "imgUrl", "desc", 1000, 3.5));
-        disks.add(new Disk("婚礼专用光盘", "DISK", "imgUrl", "desc", 1000, 5.0));
-        disks.add(new Disk("1TB超大容量光盘", "DISK", "imgUrl", "desc", 1000, 10.0));
-        disks.add(new Disk("Kingston USB", "USB", "imgUrl", "desc", 1000, 10.0));
-        TestUtil.addDisks(disks);
+        List<Item> items = new ArrayList<Item>();
+        items.add(new Item("小清新光盘", "DISK", "imgUrl", "desc", 1000, 3.5));
+        items.add(new Item("婚礼专用光盘", "DISK", "imgUrl", "desc", 1000, 5.0));
+        items.add(new Item("1TB超大容量光盘", "DISK", "imgUrl", "desc", 1000, 10.0));
+        items.add(new Item("Kingston USB", "USB", "imgUrl", "desc", 1000, 10.0));
+        TestUtil.addDisks(items);
     }
 }

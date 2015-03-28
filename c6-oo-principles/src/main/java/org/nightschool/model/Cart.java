@@ -7,13 +7,13 @@ public class Cart {
 
     private int totalItems = 10;
 
-    private List<Disk> disks = createFakeDisks();
+    private List<Item> items = createFakeDisks();
 
-    private List<Disk> createFakeDisks() {
-        List<Disk> result = new ArrayList<Disk>();
-        Disk disk = new Disk("小清新光盘","","","", 1000, 5.00);
-        disk.setNumber(10);
-        result.add(disk);
+    private List<Item> createFakeDisks() {
+        List<Item> result = new ArrayList<Item>();
+        Item item = new Item("小清新光盘","","","", 1000, 5.00);
+        item.setNumber(10);
+        result.add(item);
         return result;
     }
 

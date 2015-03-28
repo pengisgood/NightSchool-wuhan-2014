@@ -3,7 +3,7 @@ package org.nightschool.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.nightschool.mybatis.MybatisUtil;
 import org.nightschool.dao.mapper.DiskMapper;
-import org.nightschool.model.Disk;
+import org.nightschool.model.Item;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,16 +12,16 @@ import java.util.List;
 /**
  * Created by Thoughtworks on 12/26/14.
  */
-public class DiskDao {
-    ArrayList<Disk> disks = new ArrayList<Disk>();
+public class ItemDao {
+    ArrayList<Item> items = new ArrayList<Item>();
     SqlSession session = null;
     DiskMapper diskMapper = null;
 
-    public DiskDao() {}
+    public ItemDao() {}
 
-    public List<Disk> listDisks() {
+    public List<Item> listDisks() {
         initSession();
-        List<Disk> result = new ArrayList<Disk>();
+        List<Item> result = new ArrayList<Item>();
         try {
             result = diskMapper.getDisks();
         } catch (Exception e) {
@@ -33,11 +33,11 @@ public class DiskDao {
         return result;
     }
 
-    public void add(Disk disk) {
+    public void add(Item item) {
         initSession();
         try{
             diskMapper = session.getMapper(DiskMapper.class);
-            diskMapper.add(disk);
+            diskMapper.add(item);
             session.commit();
         } catch (Exception e) {
             System.out.println(e);
@@ -47,8 +47,8 @@ public class DiskDao {
         }
     }
 
-    public Disk getByName(String name) {
-        Disk result = null;
+    public Item getByName(String name) {
+        Item result = null;
         initSession();
         try{
             result = diskMapper.getByName(name);
@@ -64,7 +64,7 @@ public class DiskDao {
     public void remove(int index) {
         initSession();
         try{
-            disks.remove(index);
+            items.remove(index);
         } catch (Exception e) {
             System.out.println(e);
             session.rollback();

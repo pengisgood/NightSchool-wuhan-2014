@@ -3,30 +3,28 @@ package org.nightschool.dao;
 import mybatis.TestUtil;
 import org.junit.Before;
 import org.nightschool.dao.mapper.ForTestsMapper;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.nightschool.model.Disk;
+import org.nightschool.model.Item;
 import org.nightschool.mybatis.MybatisUtil;
 
 import java.io.IOException;
 
 import static junit.framework.Assert.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.core.Is.is;
 
 
 /**
  * Created by luchen on 3/28/15.
  */
-public class DiskDaoTest {
-    private static DiskDao diskDao;
+public class ItemDaoTest {
+    private static ItemDao itemDao;
 
     @BeforeClass
     public static void start() {
         try {
             MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH);
-            diskDao = new DiskDao();
+            itemDao = new ItemDao();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,12 +37,14 @@ public class DiskDaoTest {
 
     @Test
     public void testAdd() {
-        Disk expected = createDisk();
+        Item expected = createItem();
         TestUtil.addDisks(expected);
-        assertEquals(diskDao.getByName("Kingston"), expected);
+        Item actual = itemDao.getByName("Kingston");
+        assertEquals(actual, expected);
+        assertThat(actual.getId() > 0).isEqualTo(true);
     }
 
-    private Disk createDisk() {
-        return new Disk("Kingston", "USB", "../imgUrl/test.jpb", "8gb USB", 100, 100.00);
+    private Item createItem() {
+        return new Item("Kingston", "USB", "../imgUrl/test.jpb", "8gb USB", 100, 100.00);
     }
 }

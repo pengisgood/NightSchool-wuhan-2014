@@ -2,15 +2,13 @@ package org.nightschool.controller;
 
 import org.nightschool.model.Cart;
 import org.nightschool.model.CartItem;
+import org.nightschool.model.Item;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
-
-import static org.nightschool.model.Cart.*;
 
 /**
  * Created by Thoughtworks on 12/26/14.
@@ -26,6 +24,8 @@ public class CartController {
     @POST
     @Path("add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void add(CartItem cartItem) {
+    public void add(Item item) {
+        CartItem cartItem = new CartItem();
+        cartItem.setItemid(item.getId());
     }
 }

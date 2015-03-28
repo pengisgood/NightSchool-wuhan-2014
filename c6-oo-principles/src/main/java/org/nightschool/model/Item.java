@@ -1,6 +1,7 @@
 package org.nightschool.model;
 
-public class Disk {
+public class Item {
+    private int id;
     private String name;
     private String category;
     private String imgurl;
@@ -18,7 +19,7 @@ public class Disk {
     }
 
 
-    public Disk(String name, String category, String imgurl, String description, int count, double price)
+    public Item(String name, String category, String imgurl, String description, int count, double price)
     {
         this.name = name;
         this.category = category;
@@ -28,7 +29,7 @@ public class Disk {
         this.price = price;
     }
 
-    public Disk() {
+    public Item() {
 
     }
 
@@ -84,6 +85,14 @@ public class Disk {
         this.price = price;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int hashCode() {
         return name.hashCode() + category.hashCode() + imgurl.hashCode() + description.hashCode() + count + Double.valueOf(price).hashCode();
     }
@@ -91,14 +100,14 @@ public class Disk {
     @Override
     public boolean equals(Object object) {
         boolean result = false;
-        if(object != null && object instanceof Disk) {
-            Disk disk = (Disk)object;
-            result = this.name.equals(disk.getName()) &&
-                        this.category.equals(disk.getCategory()) &&
-                        this.imgurl.equals(disk.getImgurl()) &&
-                        this.description.equals(disk.getDescription()) &&
-                        this.count == disk.getCount() &&
-                        this.price == disk.getPrice();
+        if(object != null && object instanceof Item) {
+            Item item = (Item)object;
+            result = this.name.equals(item.getName()) &&
+                        this.category.equals(item.getCategory()) &&
+                        this.imgurl.equals(item.getImgurl()) &&
+                        this.description.equals(item.getDescription()) &&
+                        this.count == item.getCount() &&
+                        this.price == item.getPrice();
         }
         return result;
     }

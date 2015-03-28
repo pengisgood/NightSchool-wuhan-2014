@@ -3,7 +3,7 @@ package mybatis;
 import org.nightschool.dao.mapper.ForTestsMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.nightschool.model.CartItem;
-import org.nightschool.model.Disk;
+import org.nightschool.model.Item;
 import org.nightschool.mybatis.MybatisUtil;
 
 import java.io.IOException;
@@ -39,12 +39,12 @@ public class TestUtil {
         try {
             initSessoin();
             if(item instanceof List) {
-                List<Disk> items = (List<Disk>)item;
-                for(Disk disk : items){
+                List<Item> items = (List<Item>)item;
+                for(Item disk : items){
                     mapper.addDisk(disk);
                 }
             } else {
-                mapper.addDisk((Disk)item);
+                mapper.addDisk((Item)item);
             }
         } catch (IOException e) {
             System.out.println(e.getCause());

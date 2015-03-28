@@ -5,7 +5,7 @@ import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.nightschool.controller.CartController;
-import org.nightschool.controller.DiskController;
+import org.nightschool.controller.ItemController;
 
 public class NightSchoolApplication extends Application<NightSchoolConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -26,7 +26,7 @@ public class NightSchoolApplication extends Application<NightSchoolConfiguration
     @Override
     public void run(NightSchoolConfiguration configuration,
                     Environment environment) {
-        environment.jersey().register(new DiskController());
+        environment.jersey().register(new ItemController());
         environment.jersey().register(new CartController());
 
     }

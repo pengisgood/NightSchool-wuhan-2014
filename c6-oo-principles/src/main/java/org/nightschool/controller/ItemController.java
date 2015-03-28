@@ -1,7 +1,7 @@
 package org.nightschool.controller;
 
-import org.nightschool.dao.DiskDao;
-import org.nightschool.model.Disk;
+import org.nightschool.dao.ItemDao;
+import org.nightschool.model.Item;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,25 +12,25 @@ import java.util.List;
  */
 @Path("/disks")
 @Produces(MediaType.APPLICATION_JSON)
-public class DiskController {
-    private final DiskDao diskDao = new DiskDao();
+public class ItemController {
+    private final ItemDao itemDao = new ItemDao();
 
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<Disk> list() {
-        return diskDao.listDisks();
+    public List<Item> list() {
+        return itemDao.listDisks();
     }
 
     @POST
     @Path("add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void add(Disk disk) {
-        diskDao.add(disk);
+    public void add(Item item) {
+        itemDao.add(item);
     }
 
     @DELETE
     @Path("remove/{id}")
     public void remove(@PathParam("id") int index) {
-        diskDao.remove(index);
+        itemDao.remove(index);
     }
 }
