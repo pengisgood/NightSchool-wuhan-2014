@@ -17,9 +17,27 @@ public class CartItemDao {
 
     public void add(CartItem cartItem) {
         initSession();
-        cartItemMapper.add(cartItem);
-        if(session != null) {
-            session.close();
+        CartItem existCartItem = cartItemMapper.queryByKey(cartItem.getUsername(), cartItem.getItemid());
+        if(existCartItem != null) {
+            cartItem.setNumber(cartItem.getNumber() + existCartItem.getNumber());
+            cartItemMapper.update(cartItem);
+        }
+        else {
+            cartItemMapper.add(cartItem);
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    public CartItem query(String username, int itemid) {
+        initSession();
+        try {
+            return cartItemMapper.queryByKey(username, itemid);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
     }
 

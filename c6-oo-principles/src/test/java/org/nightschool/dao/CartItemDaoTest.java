@@ -40,4 +40,13 @@ public class CartItemDaoTest {
         assertThat(TestUtil.getCartItemByItemId(1)).isEqualTo(cartItem);
     }
 
+    @Test
+    public void testAddTheSame() {
+        CartItem cartItem1 = new CartItem(1, 10);
+        CartItem cartItem2 = new CartItem(1, 10);
+        cartItemDao.add(cartItem1);
+        cartItemDao.add(cartItem2);
+        assertThat(TestUtil.getCartItemByItemId(1)).isEqualTo(new CartItem(1, 20));
+    }
+
 }

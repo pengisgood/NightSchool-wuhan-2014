@@ -17,8 +17,8 @@ public class RevertDatabase {
     @BeforeClass
     public static void init() {
         try {
-            session = MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH).openSession(true);
-//            session = MybatisUtil.getFactory().openSession(true);
+//            session = MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH).openSession(true);
+            session = MybatisUtil.getFactory().openSession(true);
             mapper =  session.getMapper(ForTestsMapper.class);
         } catch (IOException e) {
             e.printStackTrace();
