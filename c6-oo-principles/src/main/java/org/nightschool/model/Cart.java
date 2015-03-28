@@ -11,7 +11,7 @@ public class Cart {
 
     private List<Item> createFakeDisks() {
         List<Item> result = new ArrayList<Item>();
-        Item item = new Item("小清新光盘","","","", 1000, 5.00);
+        Item item = new Item("小清新光盘","DISK","小清新，","", 1000, 5.00);
         item.setNumber(10);
         result.add(item);
         return result;

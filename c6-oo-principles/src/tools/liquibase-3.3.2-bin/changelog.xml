@@ -33,7 +33,7 @@
 
     <changeSet id="2" author="Lane Chen">
         <insert tableName="item">
-            <column name="name" value="小清新"/>
+            <column name="name" value="小清新光盘"/>
             <column name="category" value="DISK"/>
             <column name="imgurl" value=" ../images/disk/fancy-disk.jpg"/>
             <column name="description" value="小清新、小文艺 35元/10"/>
@@ -41,7 +41,7 @@
             <column name="count" value="1000"/>
         </insert>
         <insert tableName="item">
-            <column name="name" value="婚礼"/>
+            <column name="name" value="婚礼光盘"/>
             <column name="category" value="DISK"/>
             <column name="imgurl" value=" ../images/disk/marriage-disk.jpg"/>
             <column name="description" value="婚礼专用光盘 50元/10"/>
@@ -49,7 +49,7 @@
             <column name="count" value="1000"/>
         </insert>
         <insert tableName="item">
-            <column name="name" value="1TB大容量"/>
+            <column name="name" value="1TB大容量光盘"/>
             <column name="category" value="DISK"/>
             <column name="imgurl" value=" ../images/disk/1TB-disk.jpg"/>
             <column name="description" value="1TB大容量超级光盘 80元/10"/>

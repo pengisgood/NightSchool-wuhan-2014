@@ -1,5 +1,6 @@
 package org.nightschool.controller;
 
+import org.nightschool.dao.CartItemDao;
 import org.nightschool.model.Cart;
 import org.nightschool.model.CartItem;
 import org.nightschool.model.Item;
@@ -15,6 +16,8 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/cart")
 public class CartController {
+    private CartItemDao cartItemDao = new CartItemDao();
+
 
     @GET
     public Cart getCart(){
@@ -27,5 +30,7 @@ public class CartController {
     public void add(Item item) {
         CartItem cartItem = new CartItem();
         cartItem.setItemid(item.getId());
+        cartItem.setNumber(item.getNumber());
+        cartItemDao.add(cartItem);
     }
 }

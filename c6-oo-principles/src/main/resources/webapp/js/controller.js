@@ -57,13 +57,15 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
 
     $scope.addToCart = function (disk) {
         disk.number = $scope.number;
-        console.log("number")
+        console.log("number:" + $scope.number);
         $http({
             method: 'POST',
             url: '/cart/add',
             data: JSON.stringify(_.omit(disk, "$$hashKey")),
             contentType: "application/json"
-        }).success(function () {
+        }).success(function (cart) {
+            console.log(cart);
+            $scope.cart = cart;
         });
     };
 
