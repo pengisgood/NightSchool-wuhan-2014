@@ -12,9 +12,12 @@ public interface DiskMapper
     @Select("Select * from item")
     public List<Disk> getDisks();
 
-    @Insert("insert into item(name, imgurl, description, price, count, category) values( #{name}, #{imgurl}, #{description}, #{price}, #{count}, #{category})")
+    @Insert("insert into item(name, category, imgurl, description, price, count) values( #{name}, #{category}, #{imgurl}, #{description}, #{price}, #{count})")
     public int add(Disk disk);
 
+    @Select("Select * from item where name = #{name}")
+    public Disk getByName(@Param("name") String name);
+
     @Select("Select * from item where id = #{id}")
-    public int getById(@Param("id") int id);
+    public Disk getById(@Param("id") int id);
 }

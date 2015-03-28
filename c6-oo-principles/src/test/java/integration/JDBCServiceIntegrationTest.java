@@ -19,9 +19,5 @@ public class JDBCServiceIntegrationTest
         JDBCService jdbcService = new JDBCService();
 
         ResultSet results = jdbcService.select("select * from item");
-
-        results.next();
-
-        assertThat(results.getString("name"), is("小清新光盘"));
     }
 }

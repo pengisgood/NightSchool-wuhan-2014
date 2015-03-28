@@ -3,6 +3,7 @@ package mybatis;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
+import org.nightschool.dao.mapper.ForTestsMapper;
 import org.nightschool.mybatis.MybatisUtil;
 
 import java.io.IOException;
@@ -18,8 +19,8 @@ public class MybatisUtilTest {
 
     @Test
     public void should_connect_to_database() throws IOException {
-        SqlSessionFactory factory = MybatisUtil.getFactory();
-        SqlSession session = factory.openSession();
+        SqlSessionFactory factory = MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH);
+        SqlSession session = factory.openSession(true);
         Connection conn = session.getConnection();
         assertThat(session.getConnection()).isNotNull();
         closeResources(session, conn);

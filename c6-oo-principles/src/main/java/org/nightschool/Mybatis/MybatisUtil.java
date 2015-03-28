@@ -12,20 +12,24 @@ public class MybatisUtil
 {
     private static SqlSessionFactory sqlSessionFactory;
 
-    private static final String DEFAULT_CONFIG_PATH = "mybatis/config.xml";
+    private static String CONFIG_PATH = "mybatis/config.xml";
 
     public static SqlSessionFactory getFactory() throws IOException
     {
-        return MybatisUtil.getFactory(null);
+        return getFactory(null);
     }
 
-    public static SqlSessionFactory getFactory(String configFile) throws IOException
+    public static SqlSessionFactory getFactory(String configPath) throws IOException
     {
-        configFile = StringUtils.isNotBlank(configFile) ? configFile : DEFAULT_CONFIG_PATH;
-        InputStream inputStream = Resources.getResourceAsStream(configFile);
         if (sqlSessionFactory == null) {
+            if(StringUtils.isBlank(configPath)) {
+                configPath = CONFIG_PATH;
+            }
+            System.out.println("=================load config from :" + configPath);
+            InputStream inputStream = Resources.getResourceAsStream(configPath);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         }
         return sqlSessionFactory;
     }
+
 }

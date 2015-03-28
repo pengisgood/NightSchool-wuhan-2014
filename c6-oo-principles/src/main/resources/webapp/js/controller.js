@@ -110,6 +110,7 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
             console.log(data);
             $scope.disks = data;
         }).error(function (error) {
+            console.log(error);
         });
     };
 });

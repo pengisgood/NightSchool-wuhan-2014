@@ -8,13 +8,14 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="org.postgresql.Driver"/>
-                <property name="url" value="jdbc:postgresql://localhost:5432/shopping_mall"/>
+                <property name="url" value="jdbc:postgresql://localhost:5432/shopping_mall_test"/>
                 <property name="username" value="twer"/>
                 <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
+        <package name="mybatis.mapper" />
         <package name="org.nightschool.dao.mapper" />
     </mappers>
 </configuration>

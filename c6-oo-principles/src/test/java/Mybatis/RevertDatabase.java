@@ -1,25 +1,25 @@
 package mybatis;
 
+import org.nightschool.dao.mapper.ForTestsMapper;
 import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.nightschool.mybatis.MybatisUtil;
-import org.nightschool.dao.mapper.ClearTableMapper;
 
 import java.io.IOException;
 
-public class ClearTables {
+public class RevertDatabase {
 
     private static SqlSession session;
-    private static ClearTableMapper mapper;
+    private static ForTestsMapper mapper;
 
     @BeforeClass
     public static void init() {
         try {
-            session = MybatisUtil.getFactory("mybatis/testConfig.xml").openSession();
-            mapper =  session.getMapper(ClearTableMapper.class);
+            session = MybatisUtil.getFactory(ForTestsMapper.CONFIG_PATH).openSession(true);
+//            session = MybatisUtil.getFactory().openSession(true);
+            mapper =  session.getMapper(ForTestsMapper.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,15 +38,14 @@ public class ClearTables {
         dropItem();
         clearChangeLog();
         clearChangeLogLock();
-        session.commit();
     }
 
     private void dropItem() {
         try {
             mapper.dropItem();
         }catch (Exception e) {
-            System.out.println(e);
             session.rollback();
+            System.out.println(e);
         }
     }
 
@@ -54,8 +53,8 @@ public class ClearTables {
         try {
             mapper.dropCartItem();
         }catch (Exception e) {
-            System.out.println(e);
             session.rollback();
+            System.out.println(e);
         }
     }
 
@@ -63,8 +62,8 @@ public class ClearTables {
         try {
             mapper.clearChangeLog();
         }catch (Exception e) {
-            System.out.println(e);
             session.rollback();
+            System.out.println(e);
         }
     }
 
@@ -72,8 +71,8 @@ public class ClearTables {
         try {
             mapper.clearChangeLogLock();
         }catch (Exception e) {
-            System.out.println(e);
             session.rollback();
+            System.out.println(e);
         }
     }
 

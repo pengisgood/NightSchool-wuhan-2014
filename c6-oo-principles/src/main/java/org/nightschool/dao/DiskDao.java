@@ -20,20 +20,13 @@ public class DiskDao {
         initSession();
     }
 
-    private void initSession() {
-        try {
-            session = MybatisUtil.getFactory().openSession();
-        } catch (IOException e) {
-            //
-        }
-    }
-
     public List<Disk> listDisks() {
         List<Disk> result = new ArrayList<Disk>();
         try {
             DiskMapper diskMapper = session.getMapper(DiskMapper.class);
             result = diskMapper.getDisks();
         } catch (Exception e) {
+            System.out.println(e);
             session.rollback();
         }
         return result;
@@ -41,7 +34,6 @@ public class DiskDao {
 
     public void add(Disk disk) {
         try{
-            System.out.println("========================== " + disk.toString());
             DiskMapper diskMapper = session.getMapper(DiskMapper.class);
             diskMapper.add(disk);
         } catch (Exception e) {
@@ -50,11 +42,36 @@ public class DiskDao {
         }
     }
 
+    private void initSession() {
+        try {
+            session = MybatisUtil.getFactory().openSession();
+        } catch (IOException e) {
+            //
+        }
+    }
+
+    public Disk getByName(String name) {
+        Disk result = null;
+        try{
+            DiskMapper diskMapper = session.getMapper(DiskMapper.class);
+            result = diskMapper.getByName(name);
+        } catch (Exception e) {
+            System.out.println(e);
+            session.rollback();
+        }
+        return result;
+    }
+
     public void remove(int index) {
         try{
             disks.remove(index);
         } catch (Exception e) {
+            System.out.println(e);
             session.rollback();
         }
+    }
+
+    public void closeSession() {
+        session.close();
     }
 }
