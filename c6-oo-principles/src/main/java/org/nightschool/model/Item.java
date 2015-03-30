@@ -9,6 +9,7 @@ public class Item {
     private int count;
     private double price;
     private int number;
+    private double totalPrice;
 
     public int getNumber() {
         return number;
@@ -91,6 +92,14 @@ public class Item {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public int hashCode() {

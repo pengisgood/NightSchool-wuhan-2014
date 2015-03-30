@@ -61,6 +61,20 @@ public class ItemDao {
         return result;
     }
 
+    public Item getById(int id) {
+        Item result = null;
+        initSession();
+        try{
+            result = diskMapper.getById(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            session.rollback();
+        } finally {
+            closeSession();
+        }
+        return result;
+    }
+
     public void remove(int index) {
         initSession();
         try{
@@ -87,4 +101,5 @@ public class ItemDao {
             session.close();
         }
     }
+
 }

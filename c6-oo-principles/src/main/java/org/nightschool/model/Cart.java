@@ -1,22 +1,46 @@
 package org.nightschool.model;
 
+import org.nightschool.dao.CartItemDao;
+import org.nightschool.dao.ItemDao;
+import org.nightschool.service.DiscounterManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
 
-    private int totalItems = 10;
-    private float totalPrice = 50.00f;
+    private int totalItems = 0;
+    private float totalPrice = 0.00f;
+    private List<Item> items = new ArrayList<Item>();
+    private CartItemDao cartItemDao = new CartItemDao();
+    private ItemDao itemDao = new ItemDao();
 
-    private Item[] items = createFakeItems();
-
-    private Item[] createFakeItems() {
-        Item[] result = new Item[1];
-        Item item = new Item("little fresh disk","DISK","little fresh","", 1000, 5.00);
-        item.setNumber(10);
-        result[0] = item;
-        return result;
+    public Cart() {
+        initCart();
+        System.out.println("========== items:" + items);
     }
+
+    private void initCart() {
+        List<CartItem> cartItems = cartItemDao.all();
+        for(CartItem cartItem : cartItems) {
+            Item item = itemDao.getById(cartItem.getItemid());
+            caculateNumAndPrice(cartItem, item);
+            items.add(item);
+        }
+    }
+
+    private void caculateNumAndPrice(CartItem cartItem, Item item) {
+        totalItems += cartItem.getNumber();
+        caculateCost(cartItem, item);
+        totalPrice += item.getTotalPrice();
+    }
+
+    private void caculateCost(CartItem cartItem, Item item) {
+        item.setNumber(cartItem.getNumber());
+        item.setTotalPrice(item.getPrice() * cartItem.getNumber());
+        DiscounterManager.getChainDiscounter().discount(item);
+    }
+
 
     public int getTotalItems() {
         return totalItems;
@@ -34,11 +58,11 @@ public class Cart {
         this.totalPrice = totalPrice;
     }
 
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(Item[] items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 }

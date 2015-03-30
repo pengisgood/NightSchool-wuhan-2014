@@ -71,6 +71,8 @@
             </column>
         </createTable>
     </changeSet>
-
-
+    <changeSet id="4" author="Lane Chen">
+        <dropPrimaryKey catalogName="public"
+                        tableName="cart_item"/>
+    </changeSet>
 </databaseChangeLog>

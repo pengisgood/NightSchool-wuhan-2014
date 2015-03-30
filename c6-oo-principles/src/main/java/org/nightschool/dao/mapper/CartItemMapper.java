@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.nightschool.model.CartItem;
+import org.nightschool.model.Item;
 
 import java.util.List;
 
@@ -27,4 +28,7 @@ public interface CartItemMapper {
 
     @Update("Update cart_item set number = #{number} where username = #{username} and itemid =#{itemid}")
     int update(CartItem cartItem);
+
+    @Select("Select * from cart_item")
+    List<CartItem> all();
 }

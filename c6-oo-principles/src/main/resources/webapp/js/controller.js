@@ -4,7 +4,6 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
 
     $scope.isList = true;
     $scope.isCart = false;
-    $scope.number = 1;
     $scope.totalPrice = 0.0;
     $scope.disk = {};
 
@@ -58,8 +57,7 @@ angular.module('diskApp', []).controller("DisksListCtrl", function ($scope, $htt
     };
 
     $scope.addToCart = function (disk) {
-        disk.number = $scope.number;
-        console.log("number:" + $scope.number);
+        console.log(disk);
         $http({
             method: 'POST',
             url: '/cart/add',

@@ -61,6 +61,8 @@ public class TestUtil {
             cartItem = mapper.getCartItemId(itemid);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            session.close();
         }
         return cartItem;
     }
@@ -71,6 +73,8 @@ public class TestUtil {
             mapper.clearCartItem();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 }
